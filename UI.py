@@ -466,10 +466,11 @@ class EditScreen(Screen):
     def displayall(self):
         if self.buslist == '' and self.current_stop_num != '':
             names = wbc.return_all(self.current_stop_num)
-            res = ''
-            for x in range(0, len(names)):
-                res = res + '  ' + names[x]
-            self.buslist = res
+            if names != [-1]:
+                res = ''
+                for x in range(0, len(names)):
+                    res = res + '  ' + names[x]
+                self.buslist = res
     pass
 
 
