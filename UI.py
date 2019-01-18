@@ -367,7 +367,7 @@ AppScreenManager:
             app.edit_callback()
             
     Button:
-        text: 'list all stops'
+        text: 'list all buses'
         color: {black}
         background_color: {button_col}
         background_normal: ''
@@ -463,13 +463,12 @@ class EditScreen(Screen):
         # fh.update_num(index)
 
     def displayall(self):
-        if self.buslist == '':
+        if self.buslist == '' and self.current_stop_num != '':
             names = wbc.return_all(self.current_stop_num)
             res = ''
             for x in range(0, len(names)):
                 res = res + '  ' + names[x]
             self.buslist = res
-
     pass
 
 
