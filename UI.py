@@ -451,6 +451,7 @@ class EditScreen(Screen):
     def updatelabels(self, index):
         self.current_bus_name = name[index]
         self.current_stop_num = stop[index]
+        self.buslist = ''
 
     def change_name(self):
         name[self.edit_index] = self.ids.change_name_id.text
@@ -459,7 +460,7 @@ class EditScreen(Screen):
     def change_num(self):
         stop[self.edit_index] = self.ids.change_num_id.text
         if self.buslist != '':
-            self.display_all()
+            self.displayall()
         # fh.update_num(index)
 
     def displayall(self):
@@ -505,12 +506,3 @@ if __name__ == '__main__':
     app_instance.run()
 
 # use pyinstaller --noconsole -- onefile UI.py
-# note adding just this canvas option will still show black on transistion:
-    '''
-    canvas:
-        Color:
-            rgb: (1, 0, 0, 1)
-        Rectangle:
-            pos: self.pos
-            size: self.size
-    '''
